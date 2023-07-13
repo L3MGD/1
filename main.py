@@ -19,11 +19,12 @@ async def start(message: types.Message):
 
 
 @dp.message_handler(commands=['sendvideo'])
-async def send_video(message: types.Message):
-    video_path = r"C:\Users\olymp\Videos\Captures\video.mp4"
-    chat_id = message.chat.id
-    video = types.InputFile(video_path)
-    await bot.send_video(chat_id=chat_id, video=video)
+async def send_video(message:types.Message):
+    async def send_music(path: str):
+        chat_id = message.chat.id
+        video = types.InputFile(path)
+        await bot.send_video(chat_id=chat_id, video=video)
+        await send_video('phonk.mp4')
 
 
 @dp.message_handler(commands=['sendmusic'])
