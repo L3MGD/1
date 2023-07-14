@@ -15,7 +15,7 @@ dp = Dispatcher(bot, storage=storage)
 async def start(message: types.Message):
     await message.reply(
         "Привет! Я бот погоды. Введите название города, чтобы получить погоду. можете написать секретную команду"
-        " /sendvideo она прикольная или я могу отправить котика /cat или собаку /dog")
+        " /sendmusic она прикольная и отправит вам музыку или я могу отправить котика /cat или собаку /dog")
 
 
 @dp.message_handler(commands=['sendvideo'])
@@ -25,6 +25,7 @@ async def send_video(message:types.Message):
         video = types.InputFile(path)
         await bot.send_video(chat_id=chat_id, video=video)
         await send_video('phonk.mp4')
+        await message.reply('ссылка на этого крутого человека: https://www.youtube.com/@belkalazyrit4792')
 
 
 @dp.message_handler(commands=['sendmusic'])
