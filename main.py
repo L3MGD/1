@@ -42,24 +42,7 @@ async def send_music(message: types.Message):
         await send_video(chat_id, "video (2).mp4")
 
 
-@dp.message_handler(commands=['cat'])
-async def send_random_cat_photo(message: types.Message):
-    photo_url = get_cat_url()
-    if photo_url:
-        await message.answer_photo(photo_url)
-    else:
-        await message.answer("Извините, не удалось получить фото кота.")
-
-
-@dp.message_handler(commands=['dog'])
-async def send_random_dog_photo(message: types.Message):
-    photo_url = get_dog_url()
-    if photo_url:
-        await message.answer_photo(photo_url)
-    else:
-        await message.answer("Извините, не удалось получить фото пса.")
-
-
+  
 @dp.message_handler()
 async def get_weather(message: types.Message):
     city = message.text
